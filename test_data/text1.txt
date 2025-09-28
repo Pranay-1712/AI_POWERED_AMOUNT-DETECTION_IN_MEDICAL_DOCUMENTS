@@ -1,0 +1,3 @@
+{
+    "text": "Medical Receipt\nDoctor Fee: Rs 1000\nMedicine: Rs 250\nTotal: Rs 1250\nPaid: Rs 1250"
+}

@@ -1,0 +1,18 @@
+{
+    "text": """
+    CITY HOSPITAL BILL
+    Patient: John Smith
+    
+    Consultation Charges: Rs 1,500
+    Room Charges (1 day): Rs 2,000
+    Medicine & Injections: Rs 800
+    Laboratory Tests: Rs 1,200
+    
+    Gross Amount: Rs 5,500
+    Discount (10%): Rs 550
+    Net Amount: Rs 4,950
+    
+    Advance Paid: Rs 2,000
+    Balance Due: Rs 2,950
+    """
+}

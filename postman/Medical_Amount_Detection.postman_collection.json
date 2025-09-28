@@ -1,0 +1,223 @@
+{
+    "info": {
+      "name": "Medical Amount Detection API",
+      "description": "API for extracting financial amounts from medical bills",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "🏥 Main Endpoints",
+        "item": [
+          {
+            "name": "Health Check",
+            "request": {
+              "method": "GET",
+              "url": "http://localhost:8000/health"
+            }
+          },
+          {
+            "name": "Extract Amounts - JSON Text",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"text\": \"Medical Bill\\nConsultation: Rs 800\\nMedicine: Rs 200\\nTotal: Rs 1000\\nPaid: Rs 1000\"\n}"
+              },
+              "url": "http://localhost:8000/extract-amounts-json"
+            }
+          },
+          {
+            "name": "Extract Amounts - Image Upload",
+            "request": {
+              "method": "POST",
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "file",
+                    "type": "file",
+                    "src": "test_data/test_image_1.png",
+                    "description": "Upload medical bill image (use test_data/test_image_1.png)"
+                  }
+                ]
+              },
+              "url": "http://localhost:8000/extract-amounts"
+            }
+          }
+        ]
+      },
+      {
+        "name": "🔧 Debug Endpoints",
+        "item": [
+          {
+            "name": "Step 1: OCR - Text",
+            "request": {
+              "method": "POST",
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "text",
+                    "value": "Total: Rs 1200 | Paid: Rs 1000 | Due: Rs 200",
+                    "type": "text"
+                  }
+                ]
+              },
+              "url": "http://localhost:8000/debug/step1-ocr"
+            }
+          },
+          {
+            "name": "Step 1: OCR - Image",
+            "request": {
+              "method": "POST",
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "file",
+                    "type": "file",
+                    "src": "test_data/test_image_1.png",
+                    "description": "Upload image for OCR testing (use test_data/test_image_1.png)"
+                  }
+                ]
+              },
+              "url": "http://localhost:8000/debug/step1-ocr"
+            }
+          },
+          {
+            "name": "Step 2: Normalization",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "[\"1200\", \"1O00\", \"2OO\"]"
+              },
+              "url": "http://localhost:8000/debug/step2-normalization"
+            }
+          },
+          {
+            "name": "Step 3: Classification",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"text\": \"Consultation: Rs 800, Total: Rs 1000, Paid: Rs 1000\",\n  \"amounts\": [800, 1000, 1000]\n}"
+              },
+              "url": "http://localhost:8000/debug/step3-classification"
+            }
+          }
+        ]
+      },
+      {
+        "name": "🧪 Test Cases",
+        "item": [
+          {
+            "name": "Simple Consultation - Text",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"text\": \"Dr. Sharma's Clinic\\nPatient: Rahul Kumar\\n\\nConsultation Fee: Rs 800\\nMedicine: Rs 150\\nTotal: Rs 950\\nPaid: Rs 950\"\n}"
+              },
+              "url": "http://localhost:8000/extract-amounts-json"
+            }
+          },
+          {
+            "name": "Hospital Bill - Text",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"text\": \"Apollo Hospital\\nRoom Charges: Rs 2,500\\nDoctor Fee: Rs 1,500\\nLab Tests: Rs 800\\nMedicine: Rs 450\\n\\nSubtotal: Rs 5,250\\nGST (18%): Rs 945\\nTotal Amount: Rs 6,195\\nAdvance: Rs 3,000\\nBalance Due: Rs 3,195\"\n}"
+              },
+              "url": "http://localhost:8000/extract-amounts-json"
+            }
+          },
+          {
+            "name": "Consultation Bill - Image",
+            "request": {
+              "method": "POST",
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "file",
+                    "type": "file",
+                    "src": "test_data/test_image_1.png",
+                    "description": "Upload consultation bill image (use test_data/test_image_1.png)"
+                  }
+                ]
+              },
+              "url": "http://localhost:8000/extract-amounts"
+            }
+          },
+          {
+            "name": "Hospital Bill - Image",
+            "request": {
+              "method": "POST",
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "file",
+                    "type": "file",
+                    "src": "test_data/test_image_2.png",
+                    "description": "Upload hospital bill image (use test_data/test_image_2.png)"
+                  }
+                ]
+              },
+              "url": "http://localhost:8000/extract-amounts"
+            }
+          },
+          {
+            "name": "Pharmacy Bill - Image",
+            "request": {
+              "method": "POST",
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "file",
+                    "type": "file",
+                    "src": "test_data/test_image_3.png",
+                    "description": "Upload pharmacy bill image (use test_data/test_image_3.png)"
+                  }
+                ]
+              },
+              "url": "http://localhost:8000/extract-amounts"
+            }
+          }
+        ]
+      }
+    ]
+  }
