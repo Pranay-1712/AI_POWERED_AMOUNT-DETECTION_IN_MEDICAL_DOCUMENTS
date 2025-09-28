@@ -35,7 +35,6 @@ GEMINI_API_KEY=gemini_api_key
 
 ### 4. Run Application
 ```bash
-cd medical-amount-detection
 python3 run.py
 ```
 
