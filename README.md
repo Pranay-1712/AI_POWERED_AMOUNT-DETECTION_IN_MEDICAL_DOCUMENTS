@@ -131,3 +131,65 @@ The repository includes sample test files in the `test_data/` directory:
 - **Text samples**: `text1.txt`, `text2.txt`
 
 These samples demonstrate various medical bill formats and can be used to test both image and text processing capabilities.
+
+### Sample Input Image
+
+<img width="493" height="464" alt="test_image_1" src="https://github.com/user-attachments/assets/bccd0641-11bd-4cd0-824d-e1e252e8539c" />
+
+### Sample Output:
+```json
+{
+    "currency": "INR",
+    "amounts": [
+        {
+            "type": "other",
+            "value": 4000.0,
+            "source": "text: 'ROOM RENT 4,000.00'",
+            "name": "ROOM RENT"
+        },
+        {
+            "type": "other",
+            "value": 2765.54,
+            "source": "text: 'PHARMACY 2,765.54'",
+            "name": "PHARMACY"
+        },
+        {
+            "type": "other",
+            "value": 1000.0,
+            "source": "text: 'MEDICAL EQUIPMENT 1,000.00'",
+            "name": "MEDICAL EQUIPMENT"
+        },
+        {
+            "type": "consultation",
+            "value": 2400.0,
+            "source": "text: 'CONSULTATIONS 2,400.00'",
+            "name": "CONSULTATIONS"
+        },
+        {
+            "type": "other",
+            "value": 2118.0,
+            "source": "text: 'CONSUMABLES 2,118.00'",
+            "name": "CONSUMABLES"
+        },
+        {
+            "type": "other",
+            "value": 2860.0,
+            "source": "text: 'INVESTIGATIONS 2,860.00'",
+            "name": "INVESTIGATIONS"
+        },
+        {
+            "type": "total_bill",
+            "value": 15143.54,
+            "source": "text: 'Bill Amount 15,143.54'",
+            "name": "Bill Amount"
+        },
+        {
+            "type": "other",
+            "value": 5000.0,
+            "source": "text: 'Refundable Deposit As On 13-Feb-2023 10:05 AM Rs.5000'",
+            "name": "Refundable Deposit"
+        }
+    ],
+    "status": "ok"
+}
+```
