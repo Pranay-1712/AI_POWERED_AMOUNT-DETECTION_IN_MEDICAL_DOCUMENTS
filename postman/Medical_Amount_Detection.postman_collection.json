@@ -102,7 +102,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "[\"1200\", \"1O00\", \"2OO\"]"
+              "raw": "{\"tokens\": [\"1200\", \"1O00\", \"2OO\"]}"
             },
             "url": "http://localhost:8000/debug/step2-normalization"
           }
