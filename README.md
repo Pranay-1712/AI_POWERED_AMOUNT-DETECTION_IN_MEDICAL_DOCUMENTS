@@ -132,11 +132,11 @@ The repository includes sample test files in the `test_data/` directory:
 
 These samples demonstrate various medical bill formats and can be used to test both image and text processing capabilities.
 
-### Sample Input Image
+### Sample Input Image_1
 
 <img width="493" height="464" alt="test_image_1" src="https://github.com/user-attachments/assets/bccd0641-11bd-4cd0-824d-e1e252e8539c" />
 
-### Sample Output:
+### Sample Output 1:
 ```json
 {
     "currency": "INR",
@@ -188,6 +188,48 @@ These samples demonstrate various medical bill formats and can be used to test b
             "value": 5000.0,
             "source": "text: 'Refundable Deposit As On 13-Feb-2023 10:05 AM Rs.5000'",
             "name": "Refundable Deposit"
+        }
+    ],
+    "status": "ok"
+}
+```
+### Sample Input Image_2
+<img width="930" height="368" alt="test_image_3" src="https://github.com/user-attachments/assets/da022484-6834-457f-bcda-cc7a5b673613" />
+
+### Sample Output 1:
+```json
+{
+    "currency": "INR",
+    "amounts": [
+        {
+            "type": "consultation",
+            "value": 200.0,
+            "source": "text: 'Consultation-Dr. Kumar 200'",
+            "name": "Consultation-Dr. Kumar"
+        },
+        {
+            "type": "test",
+            "value": 220.0,
+            "source": "text: 'Complete Blood Count 220'",
+            "name": "Complete Blood Count"
+        },
+        {
+            "type": "total_bill",
+            "value": 420.0,
+            "source": "text: 'Total Billed 420'",
+            "name": "Total Billed"
+        },
+        {
+            "type": "other",
+            "value": 420.0,
+            "source": "text: 'Payable 420'",
+            "name": "Payable"
+        },
+        {
+            "type": "paid",
+            "value": 420.0,
+            "source": "text: 'Received Rs. 420 (by Cash) as Payment'",
+            "name": "Payment"
         }
     ],
     "status": "ok"
