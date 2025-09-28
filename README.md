@@ -45,22 +45,11 @@ API available at `http://localhost:8000`
 ### Main Endpoint
 **POST** `/extract-amounts`
 
-**Text Input (Form Data):**
-```bash
-curl -X POST "http://localhost:8000/extract-amounts" \
-  -F "text=Apollo Hospital
-Room Charges: Rs 2,500
-Doctor Fee: Rs 1,500
-Total Amount: Rs 4,000
-Advance: Rs 2,000
-Balance Due: Rs 2,000"
-```
-
 **Text Input (JSON):**
 ```bash
 curl -X POST "http://localhost:8000/extract-amounts-json" \
   -H "Content-Type: application/json" \
-  -d '{"text": "Total: INR 1200 | Paid: 1000 | Due: 200"}'
+  -d '{"text": "Total Amount: Rs 4,000 | Advance: Rs 2,000 | Balance Due: Rs 2,000"}'
 ```
 
 **Image Upload:**
@@ -96,31 +85,6 @@ curl -X POST "http://localhost:8000/extract-amounts" \
   "status": "ok"
 }
 ```
-
-### Amount Types
-- `total_bill` - Total amount of the bill
-- `paid` - Amount already paid
-- `due` - Amount still due
-- `discount` - Discount applied
-- `tax` - Tax amount (GST, VAT, etc.)
-- `consultation` - Doctor consultation fee
-- `medicine` - Medicine/pharmacy charges
-- `test` - Laboratory test charges
-- `room_charges` - Room/accommodation charges
-- `other` - Other charges
-
-### Debug Endpoints
-- **POST** `/debug/step1-ocr` - Test OCR only
-- **POST** `/debug/step2-normalization` - Test normalization only  
-- **POST** `/debug/step3-classification` - Test classification only
-
-### Health Check
-**GET** `/health` - Check API status
-
-### Interactive Documentation
-- Swagger UI: `http://localhost:8000/docs`
-- ReDoc: `http://localhost:8000/redoc`
-
 ## Postman Collection
 
 Import the Postman collection from `postman/Medical_Amount_Detection.postman_collection.json` to test all endpoints.
@@ -150,26 +114,4 @@ Import the Postman collection from `postman/Medical_Amount_Detection.postman_col
 4. Start testing with "Health Check" endpoint
 5. Try "Extract Amounts - JSON Text" with sample data
 6. Test image uploads using `test_data/test_image_1.png` (or test_image_2.png, test_image_3.png)
-
-## Python Example
-```python
-import requests
-
-# Extract amounts from text
-response = requests.post(
-    "http://localhost:8000/extract-amounts-json",
-    json={"text": "Total: INR 1200 | Paid: 1000 | Due: 200"}
-)
-result = response.json()
-print(result)
-```
-
-## Error Responses
-```json
-{
-  "status": "no_amounts_found",
-  "reason": "No numeric values detected in the document"
-}
-```
-
 Common error statuses: `no_amounts_found`, `low_confidence`, `normalization_failed`, `error`
