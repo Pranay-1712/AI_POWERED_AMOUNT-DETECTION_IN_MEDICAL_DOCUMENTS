@@ -57,18 +57,19 @@
         "item": [
           {
             "name": "Step 1: OCR - Text",
-            "request": {
+            {
               "method": "POST",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
               "body": {
-                "mode": "raw",
-                "raw": "{\n  \"text\": \"Dr. Sharma's Clinic\\nPatient: Rahul Kumar\\n\\nConsultation Fee: Rs 800\\nMedicine: Rs 150\\nTotal: Rs 950\\nPaid: Rs 950\"\n}"
-              },
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "text",
+                    "value": "Dr. Sharma's Clinic\nPatient: Rahul Kumar\n\nConsultation Fee: Rs 800\nMedicine: Rs 150\nTotal: Rs 950\nPaid: Rs 950",
+                    "type": "text"
+                  }
+                ]
+              }
+            }
               "url": "http://localhost:8000/debug/step1-ocr"
             }
           },
