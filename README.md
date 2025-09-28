@@ -61,7 +61,7 @@ curl -X POST "http://localhost:8000/extract-amounts-json" \
 **Image Upload:**
 ```bash
 curl -X POST "http://localhost:8000/extract-amounts" \
-  -F "file=@medical_bill.jpeg"
+  -F "file=@test_data/test_image_1.png"
 ```
 
 ### Response Format
