@@ -119,5 +119,15 @@ Import the Postman collection from `postman/Medical_Amount_Detection.postman_col
 3. Select `postman/Medical_Amount_Detection.postman_collection.json`
 4. Start testing with "Health Check" endpoint
 5. Try "Extract Amounts - JSON Text" with sample data
-6. Test image uploads using `test_data/test_image_1.png` (or test_image_2.png, test_image_3.png)
-Common error statuses: `no_amounts_found`, `low_confidence`, `normalization_failed`, `error`
+6. Test image uploads using sample images from `test_data/` folder:
+   - `test_image_1.png` - Simple consultation bill
+   - `test_image_2.png` - Hospital bill format
+   - `test_image_3.png` - Pharmacy bill format
+7. Use `text1.txt` and `text2.txt` for additional text input samples
+
+### Sample Test Data:
+The repository includes sample test files in the `test_data/` directory:
+- **Images**: `test_image_1.png`, `test_image_2.png`, `test_image_3.png`
+- **Text samples**: `text1.txt`, `text2.txt`
+
+These samples demonstrate various medical bill formats and can be used to test both image and text processing capabilities.
