@@ -196,7 +196,7 @@ These samples demonstrate various medical bill formats and can be used to test b
 ### Sample Input Image_2
 <img width="930" height="368" alt="test_image_3" src="https://github.com/user-attachments/assets/da022484-6834-457f-bcda-cc7a5b673613" />
 
-### Sample Output 1:
+### Sample Output 2:
 ```json
 {
     "currency": "INR",
