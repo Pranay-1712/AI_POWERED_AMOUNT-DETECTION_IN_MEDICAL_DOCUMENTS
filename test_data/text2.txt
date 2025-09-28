@@ -1,18 +1,3 @@
 {
-    "text": """
-    CITY HOSPITAL BILL
-    Patient: John Smith
-    
-    Consultation Charges: Rs 1,500
-    Room Charges (1 day): Rs 2,000
-    Medicine & Injections: Rs 800
-    Laboratory Tests: Rs 1,200
-    
-    Gross Amount: Rs 5,500
-    Discount (10%): Rs 550
-    Net Amount: Rs 4,950
-    
-    Advance Paid: Rs 2,000
-    Balance Due: Rs 2,950
-    """
+    "text": "Apollo Hospital\nRoom Charges: Rs 2,500\nDoctor Fee: Rs 1,500\nLab Tests: Rs 800\nMedicine: Rs 450\n\nSubtotal: Rs 5,250\nGST (18%): Rs 945\nTotal Amount: Rs 6,195\nAdvance: Rs 3,000\nBalance Due: Rs 3,195"
 }
