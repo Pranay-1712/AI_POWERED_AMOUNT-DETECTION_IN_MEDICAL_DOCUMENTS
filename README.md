@@ -36,7 +36,7 @@ pip install -r requirements.txt
 ### 4. Configure Environment
 Create `.env` file:
 ```env
-GEMINI_API_KEY=gemini_api_key
+GEMINI_API_KEY=your-actual-api-key-here
 ```
 
 ### 5. Run Application
