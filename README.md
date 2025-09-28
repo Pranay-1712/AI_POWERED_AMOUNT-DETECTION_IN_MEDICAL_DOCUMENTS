@@ -17,23 +17,29 @@ Input → OCR → Normalization → Classification → Final Output
 
 ## Setup
 
-### 1. Install Dependencies
+### 1. Clone the Repository
+```
+git clone https://github.com/Pranay-1712/Plum_AI_Problem_8.git
+cd Plum_AI_Problem_8
+```
+
+### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. Install Tesseract OCR
+### 3. Install Tesseract OCR
 **macOS:** `brew install tesseract`  
 **Ubuntu:** `sudo apt-get install tesseract-ocr`  
 **Windows:** Download from [GitHub releases](https://github.com/UB-Mannheim/tesseract/wiki)
 
-### 3. Configure Environment
+### 4. Configure Environment
 Create `.env` file:
 ```env
 GEMINI_API_KEY=gemini_api_key
 ```
 
-### 4. Run Application
+### 5. Run Application
 ```bash
 python3 run.py
 ```
